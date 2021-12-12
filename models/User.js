@@ -17,7 +17,7 @@ const UserSchema = new Schema({
         required: "Email required",
         match: [/.+@.+\..+/]
     },
-    
+
     createdAt: {
         type: Date,
         default: Date.now,
@@ -44,10 +44,7 @@ const UserSchema = new Schema({
     
     // get total count of comments and replies on retrieval
     UserSchema.virtual('thoughtCount').get(function() {
-      return this.thoughts.reduce(
-        (total, thought) => total + thought.replies.length + 1,
-        0
-      );
+      return this.thoughts.length;
     });
 
     

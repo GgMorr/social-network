@@ -11,13 +11,14 @@ app.use(express.urlencoded({ extended: true }));
 
 // //SELECTED DATABASE
  mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/social-network', {
-  useFindAndModify: false,
+  //useFindAndModify: false,
    useNewUrlParser: true,
-   useUnifiedTopology: true
+   useUnifiedTopology: true,
+   //useCreateIndex: true
  });
 
  // Use this to log mongo queries being executed!
-mongoose.set('debug', true);
+//mongoose.set('debug', true);
 app.use(require('./routes'));
 
  app.listen(PORT, () => console.log(`Successfully connected on localhost:${PORT}`));

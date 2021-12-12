@@ -6,16 +6,16 @@ const {
   removeReply
 } = require('../../controllers/thought-controller');
 
-// /api/comments/<userId>
+// /api/thoughts/<userId>
 router.route('/:userId').post(addThought);
 
-// /api/comments/<userId>/<commentId>
+// /api/thoughts/<userId>/<commentId>
 router
   .route('/:userId/:thoughtId')
   .put(addReply)
   .delete(removeThought);
 
-// /api/comments/<pizzaId>/<commentId>/<replyId>
+// /api/thoughts/<thoughtId>/<commentId>/<replyId>
 router.route('/:userId/:thoughtId/:replyId').delete(removeReply);
 
 module.exports = router;
