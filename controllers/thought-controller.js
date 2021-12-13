@@ -1,6 +1,7 @@
 const { Thought, User } = require('../models');
 
 const thoughtController = {
+    
   // add thought
   addThought({ params, body }, res) {
     console.log(params);
@@ -23,7 +24,7 @@ const thoughtController = {
       .catch(err => res.json(err));
   },
 
-  // add reply to comment
+  // add reply to thought
   addReply({ params, body }, res) {
     Thought.findOneAndUpdate(
       { _id: params.thoughtId },
